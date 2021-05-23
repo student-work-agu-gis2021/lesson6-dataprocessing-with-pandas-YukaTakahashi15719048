@@ -17,8 +17,12 @@ import numpy as np
 data = None
 
 # YOUR CODE HERE 1
-data=pd.read_csv('data/1091402.txt',skiprows=[2]);
+# Read the data
+#Skip the second row
+data=pd.read_csv('data/1091402.txt',skiprows=[1]);
 data.replace('-9999','NaN')
+
+
 
 # ### Part 2 
 # 
@@ -29,9 +33,7 @@ data.replace('-9999','NaN')
 
 tavg_nodata_count = None
 #YOUR CODE HERE 2
-
-t=data['TAVG'];
-tavg_nodata_count = t.isnull().sum();
+tavg_nodata_count = data['TAVG'].isna().sum();
 
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
@@ -44,6 +46,7 @@ print('Number of no-data values in column "TAVG":',tavg_nodata_count)
 
 tmin_nodata_count = None
 #YOUR CODE HERE 3
+tmin_nodata_count = data['TMIN'].isna().sum();
 
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
@@ -56,6 +59,7 @@ print('Number of no-data values in column "TMIN":', tmin_nodata_count)
 
 day_count = None 
 #YOUR CODE HERE 4
+
 
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
