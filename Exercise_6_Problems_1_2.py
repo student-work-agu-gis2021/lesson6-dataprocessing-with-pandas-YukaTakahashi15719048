@@ -19,8 +19,8 @@ data = None
 # YOUR CODE HERE 1
 # Read the data
 #Skip the second row
-data=pd.read_csv('data/1091402.txt',skiprows=[1]);
-data.replace('-9999','NaN')
+fp = r'data/1091402.txt'
+data = pd.read_csv(fp, delim_whitespace=True, header=0, na_values=-9999, skiprows=[1])
 
 
 
@@ -78,7 +78,7 @@ first_obs = None
 # YOUR CODE HERE 5
 #Initialize first_obs to 2020 
 first_obs = 20200000
-for i in range (len(data)):
+for i in range (day_count):
   if data['DATE'][i] < first_obs:
     first_obs = data['DATE'][i]
 
@@ -93,10 +93,11 @@ print('Date of the first observation:',first_obs)
 last_obs = None
 
 # YOUR CODE HERE 6
-for i in range (len(data)):
+last_obs = 0
+for i in range (day_count):
   if data['DATE'][i] > last_obs:
     last_obs = data['DATE'][i]
-    
+
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
 print('Date of the last observation:', last_obs)
@@ -109,6 +110,7 @@ print('Date of the last observation:', last_obs)
 avg_temp = None
 
 # YOUR CODE HERE 7
+avg_temp = np.mean(data['TAVG'])
 
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
