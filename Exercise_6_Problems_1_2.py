@@ -123,7 +123,20 @@ print('Average temperature (F) for the whole dataset:', round(avg_temp, 2))
 
 avg_temp_1969 = None
 
+
 # YOUR CODE HERE 8
+#Initialize avg_temp_1969 and make new valiable days
+avg_temp_1969 = 0
+days = 0
+#Add the average temperature during the period to'avg_temp_1969'
+#and count the number of days as'days'
+for i in range (day_count):
+  if data['DATE'][i] >= 19690501 & data['DATE'][i] < 19690900 :
+    avg_temp_1969 += data['TAVG'][i]
+    days += 1
+#Divide the sum of average temperatures by ‘days’ 
+avg_temp_1969 = avg_temp_1969 / days
+
 
 #CAUTION!!! DON'T EDIT THIS PART START
 # This test print should print a number
