@@ -33,6 +33,7 @@ data.replace('-9999','NaN')
 
 tavg_nodata_count = None
 #YOUR CODE HERE 2
+
 tavg_nodata_count = data['TAVG'].isna().sum();
 
 #CAUTION!!! DON'T EDIT THIS PART START
@@ -46,6 +47,7 @@ print('Number of no-data values in column "TAVG":',tavg_nodata_count)
 
 tmin_nodata_count = None
 #YOUR CODE HERE 3
+
 tmin_nodata_count = data['TMIN'].isna().sum();
 
 #CAUTION!!! DON'T EDIT THIS PART START
