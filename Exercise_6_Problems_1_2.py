@@ -61,6 +61,7 @@ print('Number of no-data values in column "TMIN":', tmin_nodata_count)
 
 day_count = None 
 #YOUR CODE HERE 4
+#Substitute the length of the "data" to day_count
 day_count = len(data);
 
 #CAUTION!!! DON'T EDIT THIS PART START
@@ -75,6 +76,11 @@ print("Number of days:", day_count)
 first_obs = None
  
 # YOUR CODE HERE 5
+#Initialize first_obs to 2020 
+first_obs = 20200000
+for i in range (len(data)):
+  if data['DATE'][i] < first_obs:
+    first_obs = data['DATE'][i]
 
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
@@ -87,7 +93,9 @@ print('Date of the first observation:',first_obs)
 last_obs = None
 
 # YOUR CODE HERE 6
-
+for i in range (len(data)):
+  if data['DATE'][i] > last_obs:
+    last_obs = data['DATE'][i]
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
 print('Date of the last observation:', last_obs)
