@@ -29,7 +29,9 @@ data.replace('-9999','NaN')
 
 tavg_nodata_count = None
 #YOUR CODE HERE 2
-tavg_nodata_count = data.isnull().all();
+
+t=data['TAVG'];
+tavg_nodata_count = t.isnull().sum();
 
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
