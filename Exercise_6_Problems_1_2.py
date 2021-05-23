@@ -96,6 +96,7 @@ last_obs = None
 for i in range (len(data)):
   if data['DATE'][i] > last_obs:
     last_obs = data['DATE'][i]
+    
 #CAUTION!!! DON'T EDIT THIS PART START
 # Print out the solution:
 print('Date of the last observation:', last_obs)
