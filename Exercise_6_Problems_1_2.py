@@ -20,7 +20,7 @@ data = None
 # Read the data
 #Skip the second row
 fp = r'data/1091402.txt'
-data = pd.read_csv(fp, delim_whitespace=True, header=0, na_values=-9999, skiprows=[1])
+data = pd.read_csv(fp, delim_whitespace=True, na_values=-9999, skiprows=[1])
 
 
 
@@ -110,6 +110,7 @@ print('Date of the last observation:', last_obs)
 avg_temp = None
 
 # YOUR CODE HERE 7
+#use np.mean(x)
 avg_temp = np.mean(data['TAVG'])
 
 #CAUTION!!! DON'T EDIT THIS PART START
@@ -131,12 +132,13 @@ days = 0
 #Add the average temperature during the period to'avg_temp_1969'
 #and count the number of days as'days'
 for i in range (day_count):
-  if data['DATE'][i] >= 19690501 & data['DATE'][i] < 19690900 :
+  if data['DATE'][i] >= 19690501 & data['DATE'][i] <= 19690831 :
     avg_temp_1969 += data['TAVG'][i]
-    days += 1
+    days +=  1
 #Divide the sum of average temperatures by ‘days’ 
 avg_temp_1969 = avg_temp_1969 / days
 
+#i cant solve question8 ( the output is nan))
 
 #CAUTION!!! DON'T EDIT THIS PART START
 # This test print should print a number
@@ -150,6 +152,19 @@ print('Average temperature (F) for the Summer of 69:', round(avg_temp_1969, 2))
 monthly_data = None
 
 # YOUR CODE HERE 9
+#make avg_temp and month_count
+avg_temp = [0] * 12
+month_count = [0] * 12
+for i in range (day_count):
+  for month in range (12):
+    if data['DATE'][i] % 10000 >= month*100 & data['DATE'][i] % 10000 < (month+1)*100:
+      avg_temp[month] += data['TAVG'][i]
+      month_count[month] += 1
+#Divide the sum of average temperatures by ‘month_count’ 
+for month in range (12):
+  monthly_data = avg_temp[month] / month_count[month]
+
+#i cant solve question9
 
 #CAUTION!!! DON'T EDIT THIS PART START
 # This test print should print the length of variable monthly_data
